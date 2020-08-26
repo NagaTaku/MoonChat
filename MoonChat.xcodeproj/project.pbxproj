@@ -15,9 +15,14 @@
 		876D0D1124F620F300F3908B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 876D0D0F24F620F300F3908B /* LaunchScreen.storyboard */; };
 		876D0D1A24F621F900F3908B /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876D0D1824F621F900F3908B /* MessageTableViewCell.swift */; };
 		876D0D1B24F621F900F3908B /* MessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 876D0D1924F621F900F3908B /* MessageTableViewCell.xib */; };
+		876D0D1D24F6306B00F3908B /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 876D0D1C24F6306B00F3908B /* Podfile */; };
+		CBC6BADA2B1E510F9163B925 /* Pods_MoonChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53CA07170041A37C0194A7E9 /* Pods_MoonChat.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		53CA07170041A37C0194A7E9 /* Pods_MoonChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoonChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CB808A516CFEE540B0E7C57 /* Pods-MoonChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoonChat.debug.xcconfig"; path = "Target Support Files/Pods-MoonChat/Pods-MoonChat.debug.xcconfig"; sourceTree = "<group>"; };
+		769400A55BFA68EB0CEC19E8 /* Pods-MoonChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoonChat.release.xcconfig"; path = "Target Support Files/Pods-MoonChat/Pods-MoonChat.release.xcconfig"; sourceTree = "<group>"; };
 		876D0D0124F620F200F3908B /* MoonChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoonChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		876D0D0424F620F200F3908B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		876D0D0624F620F200F3908B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -28,6 +33,7 @@
 		876D0D1224F620F300F3908B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		876D0D1824F621F900F3908B /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
 		876D0D1924F621F900F3908B /* MessageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageTableViewCell.xib; sourceTree = "<group>"; };
+		876D0D1C24F6306B00F3908B /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,17 +41,39 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBC6BADA2B1E510F9163B925 /* Pods_MoonChat.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3AFF93AA053C25879E0E4E08 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				53CA07170041A37C0194A7E9 /* Pods_MoonChat.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6B5F5D0CA1ECA64E5777835B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5CB808A516CFEE540B0E7C57 /* Pods-MoonChat.debug.xcconfig */,
+				769400A55BFA68EB0CEC19E8 /* Pods-MoonChat.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		876D0CF824F620F200F3908B = {
 			isa = PBXGroup;
 			children = (
 				876D0D0324F620F200F3908B /* MoonChat */,
 				876D0D0224F620F200F3908B /* Products */,
+				876D0D1C24F6306B00F3908B /* Podfile */,
+				6B5F5D0CA1ECA64E5777835B /* Pods */,
+				3AFF93AA053C25879E0E4E08 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -80,9 +108,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 876D0D1524F620F300F3908B /* Build configuration list for PBXNativeTarget "MoonChat" */;
 			buildPhases = (
+				673ACF85BEF359B77CCC5C20 /* [CP] Check Pods Manifest.lock */,
 				876D0CFD24F620F200F3908B /* Sources */,
 				876D0CFE24F620F200F3908B /* Frameworks */,
 				876D0CFF24F620F200F3908B /* Resources */,
+				988728EDA14750E7BE5395DE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -131,6 +161,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				876D0D1D24F6306B00F3908B /* Podfile in Resources */,
 				876D0D1124F620F300F3908B /* LaunchScreen.storyboard in Resources */,
 				876D0D1B24F621F900F3908B /* MessageTableViewCell.xib in Resources */,
 				876D0D0E24F620F300F3908B /* Assets.xcassets in Resources */,
@@ -139,6 +170,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		673ACF85BEF359B77CCC5C20 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MoonChat-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		988728EDA14750E7BE5395DE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MoonChat/Pods-MoonChat-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MoonChat/Pods-MoonChat-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MoonChat/Pods-MoonChat-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		876D0CFD24F620F200F3908B /* Sources */ = {
@@ -290,6 +363,7 @@
 		};
 		876D0D1624F620F300F3908B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5CB808A516CFEE540B0E7C57 /* Pods-MoonChat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -307,6 +381,7 @@
 		};
 		876D0D1724F620F300F3908B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 769400A55BFA68EB0CEC19E8 /* Pods-MoonChat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
