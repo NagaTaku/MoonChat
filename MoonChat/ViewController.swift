@@ -15,7 +15,7 @@ class ViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var sendButton: UIButton!
     private var message: String = ""
-    private var messages: [String]  = []
+    private var messages: [Message]  = []
     
     private let socketManager = SocketManager(socketURL: URL(string:"http://10.233.164.162:5000")!, config: [.log(true), .compress])
     private var socketIOClient : SocketIOClient!
@@ -74,7 +74,9 @@ class ViewController: UIViewController, UITableViewDelegate {
                 
                 print(messageArr[0]["msg"]!)
 
-                self.messages.insert(messageArr[0]["msg"]!, at: 0)
+                //self.messages.insert(messageArr[0]["msg"]!, at: 0)
+                let dateUnix: TimeInterval = atof(messageArr[0]["time"]!)
+                self.messages.insert(Message(messageArr[0]["msg"]!, dateUnix: dateUnix), at: 0)
                 self.messageTableView.reloadData()
             }
         }
@@ -131,7 +133,8 @@ extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MessageTableViewCell", for: indexPath) as! MessageTableViewCell
-        cell.messageLabel.text = messages[indexPath.row]
+        cell.messageLabel.text = messages[indexPath.row].message
+        cell.dateLabel.text = messages[indexPath.row].getDateString()
         return cell
     }
 }
