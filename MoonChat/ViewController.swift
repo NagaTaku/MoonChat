@@ -11,18 +11,27 @@ import UIKit
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var messageTableView: UITableView!
+    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var sendButton: UIButton!
+    @IBAction func tapSendButton(_ sender: UIButton) {
+        textField.text = ""
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //UITableViewのデリゲートをViewControllerクラスで受け取る宣言
         messageTableView.delegate = self
         messageTableView.dataSource = self
+        textField.delegate = self
         
         messageTableView.rowHeight = 40
         
         // TableViewで利用するオリジナルのTableViewCellを利用するための設定
         let nib = UINib(nibName: "MessageTableViewCell", bundle: nil)
         messageTableView.register(nib, forCellReuseIdentifier: "MessageTableViewCell")
+
+        
+
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -38,6 +47,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell
     }
 
-
 }
 
+extension ViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        //message = textField.text ?? ""
+        return true
+    }
+}

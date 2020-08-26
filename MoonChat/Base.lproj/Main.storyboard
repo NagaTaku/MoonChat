@@ -27,6 +27,9 @@
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wfo-oI-9h2">
                                 <rect key="frame" x="373" y="822" width="31" height="30"/>
                                 <state key="normal" title="送信"/>
+                                <connections>
+                                    <action selector="tapSendButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Fq-RV-BFx"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -46,6 +49,8 @@
                     </view>
                     <connections>
                         <outlet property="messageTableView" destination="vgZ-4m-RMr" id="jYs-XT-q37"/>
+                        <outlet property="sendButton" destination="Wfo-oI-9h2" id="Uy5-hP-OjU"/>
+                        <outlet property="textField" destination="sLd-Lq-Pzd" id="c9K-LA-KRG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
