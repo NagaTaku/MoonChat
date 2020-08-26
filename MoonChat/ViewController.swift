@@ -105,8 +105,9 @@ class ViewController: UIViewController, UITableViewDelegate {
         guard let rect = (notification?.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue,
             let duration = notification?.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? TimeInterval else { return }
         UIView.animate(withDuration: duration) {
-            let transform = CGAffineTransform(translationX: 0, y: -(rect.size.height))
-            self.view.transform = transform
+            self.view.frame = CGRect(x: self.view.frame.origin.x, y: self.view.frame.origin.y, width: self.view.frame.width, height: self.view.frame.height - (rect.size.height))
+            //let transform = CGAffineTransform(translationX: 0, y: -(rect.size.height))
+            //self.view.transform = transform
         }
         print("keyboardWillShowを実行")
     }
@@ -115,7 +116,8 @@ class ViewController: UIViewController, UITableViewDelegate {
     @objc func keyboardWillHide(_ notification: Notification?) {
         guard let duration = notification?.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? TimeInterval else { return }
         UIView.animate(withDuration: duration) {
-            self.view.transform = CGAffineTransform.identity
+            self.view.frame = CGRect(x: self.view.frame.origin.x, y: self.view.frame.origin.y, width: self.view.frame.width, height: UIScreen.main.bounds.size.height)
+            //self.view.transform = CGAffineTransform.identity
         }
         print("keyboardWillHideを実行")
     }
