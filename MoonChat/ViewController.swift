@@ -35,7 +35,7 @@ class ViewController: UIViewController, UITableViewDelegate {
         messageTableView.dataSource = self
         textField.delegate = self
         
-        messageTableView.rowHeight = 40
+        messageTableView.rowHeight = 50
         messageTableView.tableFooterView = UIView(frame: .zero) //不要なSeparatorが消える
 
         

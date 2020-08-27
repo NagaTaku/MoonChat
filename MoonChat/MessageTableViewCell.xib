@@ -16,14 +16,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="68"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j37-Gf-CtB">
-                        <rect key="frame" x="10" y="10" width="294" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j37-Gf-CtB">
+                        <rect key="frame" x="10" y="5" width="310" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h8c-l7-wwV">
-                        <rect key="frame" x="10" y="39" width="300" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h8c-l7-wwV">
+                        <rect key="frame" x="10" y="24.5" width="300" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -31,7 +31,9 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="j37-Gf-CtB" secondAttribute="trailing" id="6K1-0G-aDQ"/>
-                    <constraint firstItem="h8c-l7-wwV" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="blb-Ft-Iw1"/>
+                    <constraint firstItem="j37-Gf-CtB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="9xC-y5-vQH"/>
+                    <constraint firstItem="h8c-l7-wwV" firstAttribute="top" secondItem="j37-Gf-CtB" secondAttribute="bottom" constant="5" id="VqM-r2-0DU"/>
+                    <constraint firstItem="j37-Gf-CtB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="bOE-jf-qrF"/>
                     <constraint firstItem="h8c-l7-wwV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="n0h-dX-t0N"/>
                     <constraint firstAttribute="trailing" secondItem="h8c-l7-wwV" secondAttribute="trailing" constant="10" id="wQn-KH-bOw"/>
                 </constraints>
