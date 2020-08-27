@@ -14,19 +14,18 @@ class ViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var messageTableView: UITableView!
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var sendButton: UIButton!
-    private var message: String = ""
     private var messages: [Message]  = []
+    
     
     private let socketManager = SocketManager(socketURL: URL(string:"http://10.233.164.162:5000")!, config: [.log(true), .compress])
     private var socketIOClient : SocketIOClient!
     
     @IBAction func tapSendButton(_ sender: UIButton) {
-        let m = textField.text ?? ""
-        //message = "{ \"message\": " + m + "}"
-        self.socketIOClient.emit("text", m)
-        //messages.insert(textField.text ?? "", at: 0)
+        let message = textField.text ?? ""
+        let messageDic = ["msg":message]
+        
+        self.socketIOClient.emit("text", messageDic)
         textField.text = ""
-        //messageTableView.reloadData()
     }
     
     override func viewDidLoad() {
@@ -36,7 +35,7 @@ class ViewController: UIViewController, UITableViewDelegate {
         messageTableView.dataSource = self
         textField.delegate = self
         
-        messageTableView.rowHeight = 40
+        messageTableView.rowHeight = 50
         messageTableView.tableFooterView = UIView(frame: .zero) //不要なSeparatorが消える
 
         
@@ -63,20 +62,13 @@ class ViewController: UIViewController, UITableViewDelegate {
         }
         
         socketIOClient.on("message") { (data, ack) in
-            print("success")
-            print(data)
-            
-//            if let paydata = data[0] as? NSMutableDictionary {
-//                paydata.
-//            }
-            if let messageArr = data as? [[String:String]] {
+            if let messageArr = data as? [[String:Any]] {
                 print("message: \(messageArr)")
-                
                 print(messageArr[0]["msg"]!)
-
-                //self.messages.insert(messageArr[0]["msg"]!, at: 0)
-                let dateUnix: TimeInterval = atof(messageArr[0]["time"]!)
-                self.messages.insert(Message(messageArr[0]["msg"]!, dateUnix: dateUnix), at: 0)
+                
+                let dateUnix: TimeInterval = messageArr[0]["time"] as! Double
+                self.messages.append(Message(messageArr[0]["msg"] as! String, dateUnix: dateUnix))
+                
                 self.messageTableView.reloadData()
             }
         }
