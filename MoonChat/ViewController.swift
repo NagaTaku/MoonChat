@@ -23,7 +23,6 @@ class ViewController: UIViewController, UITableViewDelegate {
     @IBAction func tapSendButton(_ sender: UIButton) {
         let message = textField.text ?? ""
         let messageDic = ["msg":message]
-        
         self.socketIOClient.emit("text", messageDic)
         textField.text = ""
     }
@@ -36,25 +35,22 @@ class ViewController: UIViewController, UITableViewDelegate {
         textField.delegate = self
         
         messageTableView.rowHeight = 50
-        messageTableView.tableFooterView = UIView(frame: .zero) //不要なSeparatorが消える
-
+        messageTableView.separatorStyle = .none //不要なSeparatorが消える
         
         // TableViewで利用するオリジナルのTableViewCellを利用するための設定
         let nib = UINib(nibName: "MessageTableViewCell", bundle: nil)
         messageTableView.register(nib, forCellReuseIdentifier: "MessageTableViewCell")
 
         setupSocketIO()
-        }
+    }
         
+    // socketIOの設定
     private func setupSocketIO() {
-        //guard let friend = friend else { return }
-
         socketIOClient = socketManager.defaultSocket
         
         socketIOClient.on(clientEvent: .connect){ data, ack in
             print("socket connected!")
             self.socketIOClient.emit("joined", "")
-            print("socket joined")
         }
         
         socketIOClient.on(clientEvent: .disconnect){data, ack in
@@ -63,12 +59,8 @@ class ViewController: UIViewController, UITableViewDelegate {
         
         socketIOClient.on("message") { (data, ack) in
             if let messageArr = data as? [[String:Any]] {
-                print("message: \(messageArr)")
-                print(messageArr[0]["msg"]!)
-                
                 let dateUnix: TimeInterval = messageArr[0]["time"] as! Double
                 self.messages.append(Message(messageArr[0]["msg"] as! String, dateUnix: dateUnix))
-                
                 self.messageTableView.reloadData()
             }
         }
@@ -91,7 +83,6 @@ class ViewController: UIViewController, UITableViewDelegate {
                                  name: UIResponder.keyboardWillShowNotification, object: nil)
         notification.addObserver(self, selector: #selector(keyboardWillHide(_:)),
                                  name: UIResponder.keyboardWillHideNotification, object: nil)
-        print("Notificationを発行")
     }
     
     /// キーボードが表示時に画面をずらす。
@@ -100,10 +91,7 @@ class ViewController: UIViewController, UITableViewDelegate {
             let duration = notification?.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? TimeInterval else { return }
         UIView.animate(withDuration: duration) {
             self.view.frame = CGRect(x: self.view.frame.origin.x, y: self.view.frame.origin.y, width: self.view.frame.width, height: self.view.frame.height - (rect.size.height))
-            //let transform = CGAffineTransform(translationX: 0, y: -(rect.size.height))
-            //self.view.transform = transform
         }
-        print("keyboardWillShowを実行")
     }
     
     /// キーボードが降りたら画面を戻す
@@ -111,9 +99,7 @@ class ViewController: UIViewController, UITableViewDelegate {
         guard let duration = notification?.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? TimeInterval else { return }
         UIView.animate(withDuration: duration) {
             self.view.frame = CGRect(x: self.view.frame.origin.x, y: self.view.frame.origin.y, width: self.view.frame.width, height: UIScreen.main.bounds.size.height)
-            //self.view.transform = CGAffineTransform.identity
         }
-        print("keyboardWillHideを実行")
     }
 
 }
