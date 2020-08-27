@@ -76,7 +76,8 @@ class ViewController: UIViewController, UITableViewDelegate {
 
                 //self.messages.insert(messageArr[0]["msg"]!, at: 0)
                 let dateUnix: TimeInterval = atof(messageArr[0]["time"]!)
-                self.messages.insert(Message(messageArr[0]["msg"]!, dateUnix: dateUnix), at: 0)
+                self.messages.append(Message(messageArr[0]["msg"]!, dateUnix: dateUnix))
+                
                 self.messageTableView.reloadData()
             }
         }
