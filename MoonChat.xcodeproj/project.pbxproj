@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		065EE45324F66227001CB5AF /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065EE45224F66227001CB5AF /* Message.swift */; };
+		065EE47924F79B94001CB5AF /* FriendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065EE47824F79B94001CB5AF /* FriendListViewController.swift */; };
+		065EE47B24F79BAB001CB5AF /* FriendListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 065EE47A24F79BAB001CB5AF /* FriendListViewController.storyboard */; };
+		065EE47E24F79C56001CB5AF /* FriendListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065EE47C24F79C56001CB5AF /* FriendListTableViewCell.swift */; };
+		065EE47F24F79C56001CB5AF /* FriendListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 065EE47D24F79C56001CB5AF /* FriendListTableViewCell.xib */; };
+		065EE48124F79FC3001CB5AF /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065EE48024F79FC3001CB5AF /* Friend.swift */; };
+		065EE48424F7B570001CB5AF /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065EE48324F7B570001CB5AF /* MessageViewController.swift */; };
+		065EE48624F7B583001CB5AF /* MessageViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 065EE48524F7B583001CB5AF /* MessageViewController.storyboard */; };
 		876D0D0524F620F200F3908B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876D0D0424F620F200F3908B /* AppDelegate.swift */; };
 		876D0D0724F620F200F3908B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876D0D0624F620F200F3908B /* SceneDelegate.swift */; };
 		876D0D0924F620F200F3908B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876D0D0824F620F200F3908B /* ViewController.swift */; };
@@ -22,6 +29,13 @@
 
 /* Begin PBXFileReference section */
 		065EE45224F66227001CB5AF /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		065EE47824F79B94001CB5AF /* FriendListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListViewController.swift; sourceTree = "<group>"; };
+		065EE47A24F79BAB001CB5AF /* FriendListViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FriendListViewController.storyboard; sourceTree = "<group>"; };
+		065EE47C24F79C56001CB5AF /* FriendListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListTableViewCell.swift; sourceTree = "<group>"; };
+		065EE47D24F79C56001CB5AF /* FriendListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendListTableViewCell.xib; sourceTree = "<group>"; };
+		065EE48024F79FC3001CB5AF /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
+		065EE48324F7B570001CB5AF /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
+		065EE48524F7B583001CB5AF /* MessageViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MessageViewController.storyboard; sourceTree = "<group>"; };
 		53CA07170041A37C0194A7E9 /* Pods_MoonChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoonChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CB808A516CFEE540B0E7C57 /* Pods-MoonChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoonChat.debug.xcconfig"; path = "Target Support Files/Pods-MoonChat/Pods-MoonChat.debug.xcconfig"; sourceTree = "<group>"; };
 		769400A55BFA68EB0CEC19E8 /* Pods-MoonChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoonChat.release.xcconfig"; path = "Target Support Files/Pods-MoonChat/Pods-MoonChat.release.xcconfig"; sourceTree = "<group>"; };
@@ -35,7 +49,7 @@
 		876D0D1224F620F300F3908B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		876D0D1824F621F900F3908B /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
 		876D0D1924F621F900F3908B /* MessageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageTableViewCell.xib; sourceTree = "<group>"; };
-		876D0D1C24F6306B00F3908B /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		876D0D1C24F6306B00F3908B /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +106,13 @@
 				876D0D0424F620F200F3908B /* AppDelegate.swift */,
 				876D0D0624F620F200F3908B /* SceneDelegate.swift */,
 				876D0D0824F620F200F3908B /* ViewController.swift */,
+				065EE47824F79B94001CB5AF /* FriendListViewController.swift */,
+				065EE48024F79FC3001CB5AF /* Friend.swift */,
+				065EE47A24F79BAB001CB5AF /* FriendListViewController.storyboard */,
+				065EE48324F7B570001CB5AF /* MessageViewController.swift */,
+				065EE48524F7B583001CB5AF /* MessageViewController.storyboard */,
+				065EE47C24F79C56001CB5AF /* FriendListTableViewCell.swift */,
+				065EE47D24F79C56001CB5AF /* FriendListTableViewCell.xib */,
 				065EE45224F66227001CB5AF /* Message.swift */,
 				876D0D0A24F620F200F3908B /* Main.storyboard */,
 				876D0D0D24F620F300F3908B /* Assets.xcassets */,
@@ -166,8 +187,11 @@
 				876D0D1D24F6306B00F3908B /* Podfile in Resources */,
 				876D0D1124F620F300F3908B /* LaunchScreen.storyboard in Resources */,
 				876D0D1B24F621F900F3908B /* MessageTableViewCell.xib in Resources */,
+				065EE47F24F79C56001CB5AF /* FriendListTableViewCell.xib in Resources */,
 				876D0D0E24F620F300F3908B /* Assets.xcassets in Resources */,
 				876D0D0C24F620F200F3908B /* Main.storyboard in Resources */,
+				065EE48624F7B583001CB5AF /* MessageViewController.storyboard in Resources */,
+				065EE47B24F79BAB001CB5AF /* FriendListViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,10 +245,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				876D0D0924F620F200F3908B /* ViewController.swift in Sources */,
+				065EE48424F7B570001CB5AF /* MessageViewController.swift in Sources */,
 				876D0D1A24F621F900F3908B /* MessageTableViewCell.swift in Sources */,
+				065EE47924F79B94001CB5AF /* FriendListViewController.swift in Sources */,
 				065EE45324F66227001CB5AF /* Message.swift in Sources */,
 				876D0D0524F620F200F3908B /* AppDelegate.swift in Sources */,
 				876D0D0724F620F200F3908B /* SceneDelegate.swift in Sources */,
+				065EE47E24F79C56001CB5AF /* FriendListTableViewCell.swift in Sources */,
+				065EE48124F79FC3001CB5AF /* Friend.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
