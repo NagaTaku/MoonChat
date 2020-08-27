@@ -62,12 +62,12 @@ class ViewController: UIViewController, UITableViewDelegate {
         }
         
         socketIOClient.on("message") { (data, ack) in
-            if let messageArr = data as? [[String:String]] {
+            if let messageArr = data as? [[String:Any]] {
                 print("message: \(messageArr)")
                 print(messageArr[0]["msg"]!)
                 
-                let dateUnix: TimeInterval = atof(messageArr[0]["time"]!)
-                self.messages.append(Message(messageArr[0]["msg"]!, dateUnix: dateUnix))
+                let dateUnix: TimeInterval = messageArr[0]["time"] as! Double
+                self.messages.append(Message(messageArr[0]["msg"] as! String, dateUnix: dateUnix))
                 
                 self.messageTableView.reloadData()
             }
