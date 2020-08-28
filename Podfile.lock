@@ -1,20 +1,30 @@
 PODS:
+  - InputBarAccessoryView (5.0.0):
+    - InputBarAccessoryView/Core (= 5.0.0)
+  - InputBarAccessoryView/Core (5.0.0)
+  - MessageKit (3.2.0):
+    - InputBarAccessoryView (~> 5.0.0)
   - Socket.IO-Client-Swift (15.2.0):
     - Starscream (~> 3.1)
   - Starscream (3.1.1)
 
 DEPENDENCIES:
+  - MessageKit
   - Socket.IO-Client-Swift (~> 15.2.0)
 
 SPEC REPOS:
   trunk:
+    - InputBarAccessoryView
+    - MessageKit
     - Socket.IO-Client-Swift
     - Starscream
 
 SPEC CHECKSUMS:
+  InputBarAccessoryView: cbc0b2d9456058e1166898897865f9f4960fac81
+  MessageKit: 788199a27809d677ec35f9c6e7797e9f6fa538c5
   Socket.IO-Client-Swift: 1e3e3a1f09f3312a167f0d781eb2f383d477357c
   Starscream: 4bb2f9942274833f7b4d296a55504dcfc7edb7b0
 
-PODFILE CHECKSUM: 13f00e9f0b445f9c83a969d6516afb7b7fdbdb77
+PODFILE CHECKSUM: 753e9a6840f896d4078478330ecdc23b3e3e6eed
 
 COCOAPODS: 1.9.3

@@ -7,5 +7,6 @@ target 'MoonChat' do
 
   # Pods for MoonChat
   pod 'Socket.IO-Client-Swift', '~> 15.2.0'
+  pod 'MessageKit'
 
 end
