@@ -30,6 +30,13 @@ class FriendListViewController: UIViewController {
        friendListTableView.register(nib, forCellReuseIdentifier: "FriendListTableViewCell")
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let indexPath = friendListTableView.indexPathForSelectedRow {
+            friendListTableView.deselectRow(at: indexPath, animated: true)
+        }
+    }
+    
 
     /*
     // MARK: - Navigation
@@ -62,6 +69,13 @@ extension FriendListViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard: UIStoryboard = UIStoryboard(name: "ChatViewController", bundle: nil)
+        let chatVC = storyboard.instantiateInitialViewController()! as ChatViewController
+        chatVC.friend = friends[indexPath.row]
+        self.navigationController?.pushViewController(chatVC, animated: true)
     }
     
     
