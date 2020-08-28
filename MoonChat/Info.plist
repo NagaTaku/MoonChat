@@ -60,5 +60,22 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+    <key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleTypeRole</key>
+            <string>Editor</string>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <!-- LINEからアプリに戻る際に利用するURLスキーマを追加 -->
+                <string>line3rdp.com.takuya.nagase.MoonChat</string>
+            </array>
+        </dict>
+    </array>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <!-- アプリからLINEを起動する際に利用するURLスキーマを追加 -->
+        <string>lineauth2</string>
+    </array>
 </dict>
 </plist>

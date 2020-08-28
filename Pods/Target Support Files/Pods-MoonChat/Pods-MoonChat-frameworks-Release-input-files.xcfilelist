@@ -1,5 +1,6 @@
 ${PODS_ROOT}/Target Support Files/Pods-MoonChat/Pods-MoonChat-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/InputBarAccessoryView/InputBarAccessoryView.framework
+${BUILT_PRODUCTS_DIR}/LineSDKSwift/LineSDK.framework
 ${BUILT_PRODUCTS_DIR}/MessageKit/MessageKit.framework
 ${BUILT_PRODUCTS_DIR}/Socket.IO-Client-Swift/SocketIO.framework
 ${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework
