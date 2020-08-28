@@ -16,6 +16,6 @@ struct Friend {
     
     init(_ name: String) {
         self.name = name
-        self.icon = UIImage()
+        self.icon = UIImage(named: "user-square")!
     }
 }
