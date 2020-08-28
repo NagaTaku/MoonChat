@@ -29,7 +29,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fa8-VL-nfj"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="DBi-oK-ldm"/>
+                    <navigationItem key="navigationItem" title="Title" id="DBi-oK-ldm">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="NXT-rc-bJu">
+                            <connections>
+                                <action selector="tapedAddButton:" destination="wYt-Hs-XMf" id="fW1-wt-7xl"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="friendListTableView" destination="idO-xq-kSZ" id="Fgk-Sd-MpA"/>
                         <outlet property="navifationItem" destination="DBi-oK-ldm" id="KDn-na-0i1"/>

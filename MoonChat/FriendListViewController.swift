@@ -13,7 +13,7 @@ class FriendListViewController: UIViewController {
     @IBOutlet weak var friendListTableView: UITableView!
     @IBOutlet weak var navifationItem: UINavigationItem!
     
-    let friends = [Friend("aaa"), Friend("bbb"), Friend("ccc")]
+    var friends = [Friend("aaa"), Friend("bbb"), Friend("ccc")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +37,14 @@ class FriendListViewController: UIViewController {
         }
     }
     
-
+    // "+"ボタンがタップされたら友達追加画面に遷移
+    @IBAction func tapedAddButton(_ sender: Any) {
+        let storyboard: UIStoryboard = UIStoryboard(name: "FriendAddViewController", bundle: nil)
+        let friendAddVC = storyboard.instantiateInitialViewController()! as FriendAddViewController
+        friendAddVC.parentVC = self
+        self.navigationController?.pushViewController(friendAddVC, animated: true)
+    }
+    
     /*
     // MARK: - Navigation
 
