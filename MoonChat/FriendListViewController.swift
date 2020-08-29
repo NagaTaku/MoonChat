@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import LineSDK
 
 class FriendListViewController: UIViewController {
 
     @IBOutlet weak var friendListTableView: UITableView!
     @IBOutlet weak var navifationItem: UINavigationItem!
+    @IBOutlet weak var loginButton: UIBarButtonItem!
     
     var friends = [Friend("aaa"), Friend("bbb"), Friend("ccc")]
     
@@ -28,6 +30,12 @@ class FriendListViewController: UIViewController {
         // TableViewで利用するオリジナルのTableViewCellを利用するための設定
        let nib = UINib(nibName: "FriendListTableViewCell", bundle: nil)
        friendListTableView.register(nib, forCellReuseIdentifier: "FriendListTableViewCell")
+        
+        if let token = AccessTokenStore.shared.current {
+            print("Token expires at:\(token.expiresAt)") // アクセストークンの有効期限
+            print("Token value:\(token.value)") // 現在のアクセストークン
+            loginButton.isEnabled = false // アクセストークンを所持していたらログインボタンは無効
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,6 +51,13 @@ class FriendListViewController: UIViewController {
         let friendAddVC = storyboard.instantiateInitialViewController()! as FriendAddViewController
         friendAddVC.parentVC = self
         self.navigationController?.pushViewController(friendAddVC, animated: true)
+    }
+    
+    @IBAction func LoginButton(_ sender: Any) {
+        let storyboard: UIStoryboard = UIStoryboard(name: "LoginViewController", bundle: nil)
+        let loginAddVC = storyboard.instantiateInitialViewController()! as LoginViewController
+        loginAddVC.parentVC = self
+        self.navigationController?.pushViewController(loginAddVC, animated: true)
     }
     
     /*

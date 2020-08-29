@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GWv-K4-qot">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GWv-K4-qot">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -30,6 +30,11 @@
                         <viewLayoutGuide key="safeArea" id="fa8-VL-nfj"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="DBi-oK-ldm">
+                        <barButtonItem key="leftBarButtonItem" title="Login" id="9nh-8K-9bk">
+                            <connections>
+                                <action selector="LoginButton:" destination="wYt-Hs-XMf" id="ZDE-eV-4Dg"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="NXT-rc-bJu">
                             <connections>
                                 <action selector="tapedAddButton:" destination="wYt-Hs-XMf" id="fW1-wt-7xl"/>
@@ -38,6 +43,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="friendListTableView" destination="idO-xq-kSZ" id="Fgk-Sd-MpA"/>
+                        <outlet property="loginButton" destination="9nh-8K-9bk" id="K4I-mX-lUc"/>
                         <outlet property="navifationItem" destination="DBi-oK-ldm" id="KDn-na-0i1"/>
                     </connections>
                 </viewController>
