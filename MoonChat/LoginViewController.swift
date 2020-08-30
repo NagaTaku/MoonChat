@@ -10,6 +10,8 @@ import UIKit
 import LineSDK
 
 class LoginViewController: UIViewController, LoginButtonDelegate {
+    
+    var parentVC: FriendListViewController!
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +20,7 @@ class LoginViewController: UIViewController, LoginButtonDelegate {
         if let token = AccessTokenStore.shared.current {
             print("Token expires at:\(token.expiresAt)") // アクセストークンの有効期限
             print("Token value:\(token.value)") // 現在のアクセストークン
-            self.navigationController?.popViewController(animated: true)
+            dismiss(animated: true, completion: nil)
         }
         
         // Create Login Button.
@@ -51,7 +53,12 @@ class LoginViewController: UIViewController, LoginButtonDelegate {
             }
         }
         
-        self.navigationController?.popViewController(animated: true)
+        /*
+        if let parentVC = self.presentingViewController as? FriendListViewController {
+            parentVC.loginButtonSet(isLogin: true)
+        }*/
+        parentVC.loginButtonSet(isLogin: true)
+        dismiss(animated: true, completion: nil)
     }
     
     func loginButton(_ button: LoginButton, didFailLogin error: LineSDKError) {

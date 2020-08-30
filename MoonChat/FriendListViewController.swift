@@ -78,7 +78,8 @@ class FriendListViewController: UIViewController {
     @IBAction func LoginButton(_ sender: Any) {
         let storyboard: UIStoryboard = UIStoryboard(name: "LoginViewController", bundle: nil)
         let loginAddVC = storyboard.instantiateInitialViewController()! as LoginViewController
-        self.navigationController?.pushViewController(loginAddVC, animated: true)
+        loginAddVC.parentVC = self
+        self.present(loginAddVC, animated: true, completion: nil)
     }
     
     @IBAction func LogoutButton(_ sender: Any) {
