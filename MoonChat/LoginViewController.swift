@@ -45,13 +45,12 @@ class LoginViewController: UIViewController, LoginButtonDelegate {
         if let profile = loginResult.userProfile {
             UserDefaults.standard.set(profile.userID, forKey: "user_id")
             UserDefaults.standard.set(profile.displayName, forKey: "user_name")
-            guard let picURL = profile.pictureURL else {
-                return
-            }
-            UserDefaults.standard.set(picURL, forKey: "pic_url")
             print(profile.userID)
             print(profile.displayName)
-            print(picURL)
+            if let picURL = profile.pictureURL {
+                UserDefaults.standard.set(picURL, forKey: "pic_url")
+                print(picURL)
+            }
         }
         
         parentVC.navigationController?.popViewController(animated: true)
