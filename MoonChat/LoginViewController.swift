@@ -40,18 +40,20 @@ class LoginViewController: UIViewController, LoginButtonDelegate {
     
     func loginButton(_ button: LoginButton, didSucceedLogin loginResult: LoginResult) {
         print("Login Succeeded.")
-    
-        LoginManager.shared.login(permissions: [.profile], in: self) {
-            result in
-                switch result {
-                case .success(let loginResult):
-                    let token = loginResult.accessToken.value
-                    print("Getting token value:"+token)
-                    // Send `token` to your server.
-                case .failure(let error):
-                    print(error)
-                }
+        
+        // LINEのプロフィール情報をUserDefaultsに保存
+        if let profile = loginResult.userProfile {
+            UserDefaults.standard.set(profile.userID, forKey: "user_id")
+            UserDefaults.standard.set(profile.displayName, forKey: "user_name")
+            guard let picURL = profile.pictureURL else {
+                return
+            }
+            UserDefaults.standard.set(picURL, forKey: "pic_url")
+            print(profile.userID)
+            print(profile.displayName)
+            print(picURL)
         }
+        
         parentVC.navigationController?.popViewController(animated: true)
     }
     
