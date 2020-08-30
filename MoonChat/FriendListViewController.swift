@@ -14,6 +14,7 @@ class FriendListViewController: UIViewController {
     @IBOutlet weak var friendListTableView: UITableView!
     @IBOutlet weak var navifationItem: UINavigationItem!
     @IBOutlet weak var loginButton: UIBarButtonItem!
+    @IBOutlet weak var logoutButton: UIBarButtonItem!
     
     var friends = [Friend("aaa"), Friend("bbb"), Friend("ccc")]
     
@@ -34,7 +35,6 @@ class FriendListViewController: UIViewController {
         if let token = AccessTokenStore.shared.current {
             print("Token expires at:\(token.expiresAt)") // アクセストークンの有効期限
             print("Token value:\(token.value)") // 現在のアクセストークン
-            loginButton.isEnabled = false // アクセストークンを所持していたらログインボタンは無効
         }
     }
     
@@ -42,6 +42,19 @@ class FriendListViewController: UIViewController {
         super.viewWillAppear(animated)
         if let indexPath = friendListTableView.indexPathForSelectedRow {
             friendListTableView.deselectRow(at: indexPath, animated: true)
+        }
+        
+        API.Auth.verifyAccessToken { result in
+            switch result {
+            case .success(let value):
+                print("Token expires in: \(value.expiresIn)")
+                self.loginButton.isEnabled = false // アクセストークンを所持していたらログインボタンは無効
+                self.logoutButton.isEnabled = true // アクセストークンを所持していたらログアウトボタンを有効
+            case .failure(let error):
+                print(error)
+                self.loginButton.isEnabled = true // アクセストークンを所持していたらログインボタンは有効
+                self.logoutButton.isEnabled = false // アクセストークンを所持していたらログアウトボタンを無効
+            }
         }
     }
     
@@ -60,6 +73,17 @@ class FriendListViewController: UIViewController {
         self.navigationController?.pushViewController(loginAddVC, animated: true)
     }
     
+    @IBAction func LogoutButton(_ sender: Any) {
+        LoginManager.shared.logout { result in
+            switch result {
+            case .success:
+                print("Logout Succeeded")
+                self.logoutButton.isEnabled = false
+                self.loginButton.isEnabled = true
+            case .failure(let error): print("Logout Failed: \(error)")
+            }
+        }
+    }
     /*
     // MARK: - Navigation
 

@@ -30,11 +30,18 @@
                         <viewLayoutGuide key="safeArea" id="fa8-VL-nfj"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="DBi-oK-ldm">
-                        <barButtonItem key="leftBarButtonItem" title="Login" id="9nh-8K-9bk">
-                            <connections>
-                                <action selector="LoginButton:" destination="wYt-Hs-XMf" id="ZDE-eV-4Dg"/>
-                            </connections>
-                        </barButtonItem>
+                        <leftBarButtonItems>
+                            <barButtonItem title="Login" id="9nh-8K-9bk">
+                                <connections>
+                                    <action selector="LoginButton:" destination="wYt-Hs-XMf" id="ZDE-eV-4Dg"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Logout" id="0xg-Vj-cms">
+                                <connections>
+                                    <action selector="LogoutButton:" destination="wYt-Hs-XMf" id="BFK-8f-DlG"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="NXT-rc-bJu">
                             <connections>
                                 <action selector="tapedAddButton:" destination="wYt-Hs-XMf" id="fW1-wt-7xl"/>
@@ -44,6 +51,7 @@
                     <connections>
                         <outlet property="friendListTableView" destination="idO-xq-kSZ" id="Fgk-Sd-MpA"/>
                         <outlet property="loginButton" destination="9nh-8K-9bk" id="K4I-mX-lUc"/>
+                        <outlet property="logoutButton" destination="0xg-Vj-cms" id="Fcs-dI-NoC"/>
                         <outlet property="navifationItem" destination="DBi-oK-ldm" id="KDn-na-0i1"/>
                     </connections>
                 </viewController>
