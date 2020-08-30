@@ -48,14 +48,23 @@ class FriendListViewController: UIViewController {
             switch result {
             case .success(let value):
                 print("Token expires in: \(value.expiresIn)")
-                self.loginButton.isEnabled = false // アクセストークンを所持していたらログインボタンは無効
-                self.logoutButton.isEnabled = true // アクセストークンを所持していたらログアウトボタンを有効
+                if let userID = UserDefaults.standard.string(forKey: "user_id") {
+                    print(userID)
+                    self.loginButtonSet(isLogin: true)
+                }else {
+                    self.loginButtonSet(isLogin: false)
+                }
             case .failure(let error):
                 print(error)
-                self.loginButton.isEnabled = true // アクセストークンを所持していたらログインボタンは有効
-                self.logoutButton.isEnabled = false // アクセストークンを所持していたらログアウトボタンを無効
+                self.loginButtonSet(isLogin: false)
             }
         }
+    }
+    
+    // ログイン、ログアウトボタンのセット
+    func loginButtonSet(isLogin: Bool) -> Void {
+        self.loginButton.isEnabled = !isLogin
+        self.logoutButton.isEnabled = isLogin
     }
     
     // "+"ボタンがタップされたら友達追加画面に遷移
@@ -80,6 +89,9 @@ class FriendListViewController: UIViewController {
                 print("Logout Succeeded")
                 self.logoutButton.isEnabled = false
                 self.loginButton.isEnabled = true
+                UserDefaults.standard.removeObject(forKey: "user_id")
+                UserDefaults.standard.removeObject(forKey: "user_name")
+                UserDefaults.standard.removeObject(forKey: "pic_url")
             case .failure(let error): print("Logout Failed: \(error)")
             }
         }
