@@ -28,6 +28,8 @@
 		876D0D1A24F621F900F3908B /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876D0D1824F621F900F3908B /* MessageTableViewCell.swift */; };
 		876D0D1B24F621F900F3908B /* MessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 876D0D1924F621F900F3908B /* MessageTableViewCell.xib */; };
 		876D0D1D24F6306B00F3908B /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 876D0D1C24F6306B00F3908B /* Podfile */; };
+		87C6DBF824F8FFBC00D7A067 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C6DBF724F8FFBC00D7A067 /* LoginViewController.swift */; };
+		87C6DBFA24F8FFC600D7A067 /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87C6DBF924F8FFC600D7A067 /* LoginViewController.storyboard */; };
 		CBC6BADA2B1E510F9163B925 /* Pods_MoonChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53CA07170041A37C0194A7E9 /* Pods_MoonChat.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +60,8 @@
 		876D0D1824F621F900F3908B /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
 		876D0D1924F621F900F3908B /* MessageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageTableViewCell.xib; sourceTree = "<group>"; };
 		876D0D1C24F6306B00F3908B /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		87C6DBF724F8FFBC00D7A067 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		87C6DBF924F8FFC600D7A067 /* LoginViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LoginViewController.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +118,8 @@
 				876D0D0424F620F200F3908B /* AppDelegate.swift */,
 				876D0D0624F620F200F3908B /* SceneDelegate.swift */,
 				876D0D0824F620F200F3908B /* ViewController.swift */,
+				87C6DBF924F8FFC600D7A067 /* LoginViewController.storyboard */,
+				87C6DBF724F8FFBC00D7A067 /* LoginViewController.swift */,
 				065EE48024F79FC3001CB5AF /* Friend.swift */,
 				065EE47824F79B94001CB5AF /* FriendListViewController.swift */,
 				065EE47A24F79BAB001CB5AF /* FriendListViewController.storyboard */,
@@ -203,6 +209,7 @@
 				876D0D0E24F620F300F3908B /* Assets.xcassets in Resources */,
 				876D0D0C24F620F200F3908B /* Main.storyboard in Resources */,
 				065EE48624F7B583001CB5AF /* ChatViewController.storyboard in Resources */,
+				87C6DBFA24F8FFC600D7A067 /* LoginViewController.storyboard in Resources */,
 				065EE47B24F79BAB001CB5AF /* FriendListViewController.storyboard in Resources */,
 				065EE48E24F89A33001CB5AF /* FriendAddViewController.storyboard in Resources */,
 			);
@@ -268,6 +275,7 @@
 				065EE48C24F89A24001CB5AF /* FriendAddViewController.swift in Sources */,
 				876D0D0724F620F200F3908B /* SceneDelegate.swift in Sources */,
 				065EE47E24F79C56001CB5AF /* FriendListTableViewCell.swift in Sources */,
+				87C6DBF824F8FFBC00D7A067 /* LoginViewController.swift in Sources */,
 				065EE48124F79FC3001CB5AF /* Friend.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

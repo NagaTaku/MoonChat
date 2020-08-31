@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import LineSDK
 
 class FriendListViewController: UIViewController {
 
     @IBOutlet weak var friendListTableView: UITableView!
     @IBOutlet weak var navifationItem: UINavigationItem!
+    @IBOutlet weak var loginButton: UIBarButtonItem!
+    @IBOutlet weak var logoutButton: UIBarButtonItem!
     
     var friends = [Friend("aaa"), Friend("bbb"), Friend("ccc")]
     
@@ -28,6 +31,11 @@ class FriendListViewController: UIViewController {
         // TableViewで利用するオリジナルのTableViewCellを利用するための設定
        let nib = UINib(nibName: "FriendListTableViewCell", bundle: nil)
        friendListTableView.register(nib, forCellReuseIdentifier: "FriendListTableViewCell")
+        
+        if let token = AccessTokenStore.shared.current {
+            print("Token expires at:\(token.expiresAt)") // アクセストークンの有効期限
+            print("Token value:\(token.value)") // 現在のアクセストークン
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,6 +43,28 @@ class FriendListViewController: UIViewController {
         if let indexPath = friendListTableView.indexPathForSelectedRow {
             friendListTableView.deselectRow(at: indexPath, animated: true)
         }
+        
+        API.Auth.verifyAccessToken { result in
+            switch result {
+            case .success(let value):
+                print("Token expires in: \(value.expiresIn)")
+                if let userID = UserDefaults.standard.string(forKey: "user_id") {
+                    print(userID)
+                    self.loginButtonSet(isLogin: true)
+                }else {
+                    self.loginButtonSet(isLogin: false)
+                }
+            case .failure(let error):
+                print(error)
+                self.loginButtonSet(isLogin: false)
+            }
+        }
+    }
+    
+    // ログイン、ログアウトボタンのセット
+    func loginButtonSet(isLogin: Bool) -> Void {
+        self.loginButton.isEnabled = !isLogin
+        self.logoutButton.isEnabled = isLogin
     }
     
     // "+"ボタンがタップされたら友達追加画面に遷移
@@ -45,6 +75,27 @@ class FriendListViewController: UIViewController {
         self.navigationController?.pushViewController(friendAddVC, animated: true)
     }
     
+    @IBAction func LoginButton(_ sender: Any) {
+        let storyboard: UIStoryboard = UIStoryboard(name: "LoginViewController", bundle: nil)
+        let loginAddVC = storyboard.instantiateInitialViewController()! as LoginViewController
+        loginAddVC.parentVC = self
+        self.present(loginAddVC, animated: true, completion: nil)
+    }
+    
+    @IBAction func LogoutButton(_ sender: Any) {
+        LoginManager.shared.logout { result in
+            switch result {
+            case .success:
+                print("Logout Succeeded")
+                self.logoutButton.isEnabled = false
+                self.loginButton.isEnabled = true
+                UserDefaults.standard.removeObject(forKey: "user_id")
+                UserDefaults.standard.removeObject(forKey: "user_name")
+                UserDefaults.standard.removeObject(forKey: "pic_url")
+            case .failure(let error): print("Logout Failed: \(error)")
+            }
+        }
+    }
     /*
     // MARK: - Navigation
 
