@@ -1,2 +1,5 @@
-Pods/*
 MoonChat.xcworkspace/xcuserdata/*
+MoonChat.xcodeproj/xcuserdata/*
+Pods/Pods.xcodeproj/xcuserdata/*
+
+.DS_Store
