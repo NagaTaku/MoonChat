@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GWv-K4-qot">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Title-->
+        <scene sceneID="O3d-qy-VnH">
+            <objects>
+                <viewController id="wYt-Hs-XMf" customClass="FriendListViewController" customModule="MoonChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nlF-Ek-qpS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="idO-xq-kSZ">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="fa8-VL-nfj" firstAttribute="bottom" secondItem="idO-xq-kSZ" secondAttribute="bottom" id="CIC-LZ-3UM"/>
+                            <constraint firstItem="idO-xq-kSZ" firstAttribute="top" secondItem="fa8-VL-nfj" secondAttribute="top" id="Zt6-qo-RJJ"/>
+                            <constraint firstItem="idO-xq-kSZ" firstAttribute="leading" secondItem="fa8-VL-nfj" secondAttribute="leading" id="etV-yC-4Va"/>
+                            <constraint firstItem="fa8-VL-nfj" firstAttribute="trailing" secondItem="idO-xq-kSZ" secondAttribute="trailing" id="k08-Tm-1hh"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fa8-VL-nfj"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="DBi-oK-ldm">
+                        <leftBarButtonItems>
+                            <barButtonItem title="Login" id="9nh-8K-9bk">
+                                <connections>
+                                    <action selector="LoginButton:" destination="wYt-Hs-XMf" id="ZDE-eV-4Dg"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Logout" id="0xg-Vj-cms">
+                                <connections>
+                                    <action selector="LogoutButton:" destination="wYt-Hs-XMf" id="BFK-8f-DlG"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="NXT-rc-bJu">
+                            <connections>
+                                <action selector="tapedAddButton:" destination="wYt-Hs-XMf" id="fW1-wt-7xl"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="friendListTableView" destination="idO-xq-kSZ" id="Fgk-Sd-MpA"/>
+                        <outlet property="loginButton" destination="9nh-8K-9bk" id="K4I-mX-lUc"/>
+                        <outlet property="logoutButton" destination="0xg-Vj-cms" id="Fcs-dI-NoC"/>
+                        <outlet property="navifationItem" destination="DBi-oK-ldm" id="KDn-na-0i1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nv6-y0-JDe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1028.985507246377" y="61.607142857142854"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="fGu-jx-hOO">
+            <objects>
+                <navigationController id="GWv-K4-qot" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KPv-M2-D3Q">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="wYt-Hs-XMf" kind="relationship" relationship="rootViewController" id="Afl-yd-zzA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BYQ-EW-RqW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="118.84057971014494" y="61.607142857142854"/>
+        </scene>
+    </scenes>
+</document>
